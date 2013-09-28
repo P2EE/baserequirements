@@ -28,4 +28,8 @@ class RequestDataRequirement extends Requirement {
     public function isCacheable() {
         return true;
     }
-} 
+
+    public function getCacheKey() {
+        return $this->requestDataKey;
+    }
+}

@@ -50,4 +50,8 @@ class ServiceRequirement extends Requirement {
     public function isCacheable() {
         return true;
     }
+
+    public function getCacheKey() {
+        return implode('.', [$this->serviceName, $this->methodName, sha1(var_export($this->parameter))]);
+    }
 }
