@@ -1,5 +1,6 @@
 BaseRequirements
 ================
+[![Build Status](https://travis-ci.org/P2EE/baserequirements.png?branch=master)](https://travis-ci.org/P2EE/baserequirements)
 
 The BaseRequirements package is a container for usefull usecases for Requirements types
 base on the P2ee/Preparable system.
