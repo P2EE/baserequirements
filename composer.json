@@ -15,7 +15,7 @@
     "require": {
         "php": ">=5.5.0",
         "p2ee/preparables": "dev-master",
-        "rg/injektor": "v1.0.0",
+        "rg/injektor": ">=1.2.0,<2.0.0-dev",
         "symfony/http-foundation": ">=2.3,<2.4-dev"
     },
     "autoload": {
