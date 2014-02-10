@@ -30,7 +30,7 @@ class RequestDataResolver implements Resolver {
      */
     public function resolve(Requirement $requirement, Preparer $preparer) {
         if (!($requirement instanceof RequestDataRequirement)) {
-            throw new \Exception('invalid requirement type for RequestDataResolver');
+            throw new \InvalidArgumentException('invalid requirement type for RequestDataResolver');
         }
 
         return $this->request->get($requirement->getRequestDataKey());

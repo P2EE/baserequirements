@@ -24,7 +24,7 @@ class ServiceResolver implements Resolver {
 
     public function resolve(Requirement $requirement, Preparer $preparer) {
         if (!($requirement instanceof ServiceRequirement)) {
-            throw new \Exception('invalid requirement type for ServiceResolver');
+            throw new \InvalidArgumentException('invalid requirement type for ServiceResolver');
         }
 
         $service = $this->dic->getInstanceOfClass($requirement->getServiceName());
