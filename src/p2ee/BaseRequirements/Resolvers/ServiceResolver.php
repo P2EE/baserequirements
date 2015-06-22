@@ -22,7 +22,7 @@ class ServiceResolver implements Resolver {
         $this->dic = $dic;
     }
 
-    public function resolve(Requirement $requirement, Preparer $preparer) {
+    public function resolve(Requirement $requirement) {
         if (!($requirement instanceof ServiceRequirement)) {
             throw new \InvalidArgumentException('invalid requirement type for ServiceResolver');
         }

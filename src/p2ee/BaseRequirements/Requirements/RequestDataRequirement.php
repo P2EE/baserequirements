@@ -32,4 +32,8 @@ class RequestDataRequirement extends Requirement {
     public function getCacheKey() {
         return $this->requestDataKey;
     }
+
+    public function getPrefills() {
+        return [];
+    }
 }

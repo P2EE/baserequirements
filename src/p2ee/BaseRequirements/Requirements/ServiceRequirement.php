@@ -54,4 +54,8 @@ class ServiceRequirement extends Requirement {
     public function getCacheKey() {
         return implode('.', [$this->serviceName, $this->methodName, sha1(var_export($this->parameter))]);
     }
+
+    public function getPrefills() {
+        return [];
+    }
 }

@@ -24,11 +24,10 @@ class RequestDataResolver implements Resolver {
 
     /**
      * @param Requirement $requirement
-     * @param Preparer $preparer
      * @throws \Exception
      * @return mixed
      */
-    public function resolve(Requirement $requirement, Preparer $preparer) {
+    public function resolve(Requirement $requirement) {
         if (!($requirement instanceof RequestDataRequirement)) {
             throw new \InvalidArgumentException('invalid requirement type for RequestDataResolver');
         }
