@@ -8,7 +8,7 @@ use p2ee\Preparables\Preparer;
 use p2ee\Preparables\Requirement;
 use Symfony\Component\HttpFoundation\Request;
 
-class RequestDataResolverTest extends \PHPUnit_Framework_TestCase {
+class RequestDataResolverTest extends \PHPUnit\Framework\TestCase {
 
     public function testResolver(){
         $request = $this->getMockRequest();
@@ -30,15 +30,16 @@ class RequestDataResolverTest extends \PHPUnit_Framework_TestCase {
         $this->assertTrue($resolver->resolve($requirement, $preparer));
     }
 
+    /**
+     * @expectedException \InvalidArgumentException
+     */
     public function testNotSupportedTypes() {
         $request = $this->getMockRequest();
         $preparer = $this->getMockPreparer();
 
         $resolver = new RequestDataResolver($request);
 
-        $requirement = $this->getMock(Requirement::class);
-
-        $this->setExpectedException(\InvalidArgumentException::class);
+        $requirement = $this->getMockBuilder(Requirement::class)->getMock();
 
         $resolver->resolve($requirement, $preparer);
     }

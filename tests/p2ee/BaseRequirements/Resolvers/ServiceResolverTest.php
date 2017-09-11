@@ -6,7 +6,7 @@ use p2ee\Preparables\Preparer;
 use p2ee\Preparables\Requirement;
 use rg\injektor\DependencyInjectionContainer;
 
-class ServiceResolverTest extends \PHPUnit_Framework_TestCase {
+class ServiceResolverTest extends \PHPUnit\Framework\TestCase {
 
     public function testServiceResolver(){
         $dic = $this->getMockDic();
@@ -39,15 +39,16 @@ class ServiceResolverTest extends \PHPUnit_Framework_TestCase {
         $this->assertTrue($resolver->resolve($requirement, $preparer));
     }
 
+    /**
+     * @expectedException \InvalidArgumentException
+     */
     public function testInvalidRequirement(){
 
         $dic = $this->getMockDic();
         $preparer = $this->getMockPreparer();
         $resolver = new ServiceResolver($dic);
 
-        $requirement = $this->getMock(Requirement::class);
-
-        $this->setExpectedException(\InvalidArgumentException::class);
+        $requirement = $this->getMockBuilder(Requirement::class)->getMock();
 
         $resolver->resolve($requirement, $preparer);
     }
